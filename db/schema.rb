@@ -17,7 +17,8 @@ ActiveRecord::Schema.define(version: 2020_09_09_001503) do
 
   create_table "todos", force: :cascade do |t|
     t.string "title"
-    t.string "comment"
+    t.string "content"
+    t.integer "user_id"
     t.boolean "done"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
