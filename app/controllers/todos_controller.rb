@@ -10,10 +10,11 @@ class TodosController < ApplicationController
     end
   
     def create
-      todo = Todo.create(todo_param)
-      render json: todo
+        todo = Todo.create(todo_params)
+        render json: todo
     end
   
+
     def update
       todo = Todo.find(params[:id])
       todo.update_attributes(todo_param)
@@ -27,7 +28,7 @@ class TodosController < ApplicationController
     end
     
     private
-      def todo_param
-        params.require(:todo).permit(:title, :content, :done)
+      def todo_params
+        params.require(:todo).permit(:title, :content, :done, :user_id)
       end
   end
