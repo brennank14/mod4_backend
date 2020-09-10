@@ -3,6 +3,11 @@ class TodosController < ApplicationController
       todos = Todo.order("created_at DESC")
       render json: todos
     end
+
+    def show
+        todo = Todo.find(params[:id])
+        render json: todo
+    end
   
     def create
       todo = Todo.create(todo_param)
@@ -23,6 +28,6 @@ class TodosController < ApplicationController
     
     private
       def todo_param
-        params.require(:todo).permit(:title, :done)
+        params.require(:todo).permit(:title, :content, :done)
       end
   end
