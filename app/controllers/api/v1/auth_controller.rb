@@ -3,7 +3,7 @@ class Api::V1::AuthController < ApplicationController
         user = User.find_by(username: params[:username])
         
         if user && user.authenticate(params[:password])
-            render json: { id: user.id, username: user.username }
+            render json: user
         else
             render json: { error: 'Invalid username or password.' }
         end

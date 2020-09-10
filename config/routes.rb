@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   resources :todos
+  resources :users
   
   namespace :api do
     namespace :v1 do
       post '/auth', to: 'auth#create'
-      get '/user', to: 'auth#show'
     end
   end
 end

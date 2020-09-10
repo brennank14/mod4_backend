@@ -25,6 +25,7 @@ class TodosController < ApplicationController
       todo = Todo.find(params[:id])
       todo.destroy
       head :no_content, status: :ok
+      render json: todo
     end
     
     private
